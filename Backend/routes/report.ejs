@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <style>
+            table{
+                font-family: Arial,sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+            td,th{
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+                font-size: 20px;
+            }
+            h1{
+                font-size: 30px;
+                color: #D4AC0D;
+            }
+            .texto-total{
+                font-size: 25px;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div>
+        <a style="text-align: right; " href="https://imgbb.com/"><img src="https://i.ibb.co/Xpm5J7M/Logo-Discoteca-Oasis.png" alt="Logo-Discoteca-Oasis" border="0" width="120px" height="40px"></a>
+        <h1 style="text-align: center;">Discoteca el Oasis</h1>
+        </div>
+        <table>
+            <tr>
+                <th>Nombre: <%= name %></th>
+                <th>Email: <%= email %></th>
+            </tr>
+            <tr>
+                <th>Numero de Contacto: <%= contactNumber %></th>
+                <th>Método de pago: <%= paymentMethod %></th>
+            </tr>
+        </table>
+
+        <h1>Detalles del Producto</h1>
+        <table>
+            <tr>
+                <th>Nombre Producto</th>
+                <th>Categoria</th>
+                <th>Cantidad</th>
+                <th>Precio Producto</th>
+                <th>IVA</th>
+            </tr>
+            <% if(productDetails.length > 0) { %>
+                <% productDetails.forEach(product =>{%>
+                    <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.category %></td>
+                        <td><%= product.quantity %></td>
+                        <td><%= product.price %></td>
+                        <td><%= iva = product.price * 0.19 %></td>
+                    </tr>
+                    <%});%>
+                    <%}%>
+        </table>
+        <h3 class="texto-total">Total: <%= totalAmount + iva %></h3>
+        <h3>Gracias por visitarnos. Te esperamos de nuevo!!</h3>
+    </body>
+</html>
